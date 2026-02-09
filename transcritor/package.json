@@ -1,0 +1,42 @@
+{
+  "name": "transcritor-desktop",
+  "version": "0.1.0",
+  "description": "App desktop para transcrever audio, corrigir e resumir",
+  "main": "electron/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "bundle:setup": "powershell -ExecutionPolicy Bypass -File scripts\\setup_bundle.ps1"
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.transcritai.desktop",
+    "productName": "Transcrit AI",
+    "asar": true,
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "models/**/*",
+      "bundle/**/*",
+      "package.json",
+      "requirements.txt"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

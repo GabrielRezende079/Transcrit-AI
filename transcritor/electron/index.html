@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transcritor Desktop</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <h1>Transcrit AI</h1>
+          <p>Grave ou selecione um audio, transcreva, corrija e resuma.</p>
+        </div>
+        <div class="header-actions">
+          <div class="record-indicator" id="recordIndicator">
+            <span class="dot"></span>
+            <span class="text">Gravando</span>
+          </div>
+          <button id="toggleSettings" class="btn ghost">Configuracao rapida</button>
+          <div class="status" id="status">Pronto para iniciar.</div>
+        </div>
+      </header>
+
+      <section class="main-grid">
+        <div class="left-col">
+          <section class="panel actions">
+            <h2 class="panel-title">Entrada de audio</h2>
+            <div class="buttons">
+              <button id="pickAudio" class="btn">Selecionar MP3</button>
+              <button id="record" class="btn secondary">Gravar microfone</button>
+              <button id="stop" class="btn ghost">Parar gravacao</button>
+            </div>
+            <div class="path">
+              <span>Arquivo:</span>
+              <strong id="audioPath">Nenhum</strong>
+            </div>
+            <div class="actions-row">
+              <button id="transcribe" class="btn primary">Transcrever e resumir</button>
+              <button id="saveResults" class="btn ghost">Salvar resultados</button>
+            </div>
+          </section>
+
+          <section class="panel hidden" id="quickSettings">
+            <h2 class="panel-title">Configuracao rapida</h2>
+            <div class="row">
+              <label for="modelPath">Modelo Vosk</label>
+              <input
+                id="modelPath"
+                type="text"
+                value="models/vosk-model-small-pt-0.3"
+              />
+            </div>
+            <div class="row">
+              <label for="groqKey">GROQ_API_KEY</label>
+              <input id="groqKey" type="password" placeholder="Cole sua chave" />
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">Log detalhado</h2>
+            <textarea id="log" class="log" readonly></textarea>
+          </section>
+        </div>
+
+        <section class="panel outputs">
+          <div class="output">
+            <h2>Transcricao</h2>
+            <textarea id="transcript" readonly></textarea>
+          </div>
+          <div class="output">
+            <h2>Transcricao corrigida</h2>
+            <textarea id="corrected" readonly></textarea>
+          </div>
+          <div class="output">
+            <h2>Resumo</h2>
+            <textarea id="summary" readonly></textarea>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
