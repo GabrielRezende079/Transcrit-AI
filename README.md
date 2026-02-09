@@ -8,4 +8,6 @@
 - Groq API
 - Electron
 
-* O aplicativo foi feito para transcrever audios .MP3 ou Gravados em tempo real com o Microfone, usando scripts com ajuda do Langchain e do modelo de IA da Groq de forma gratuita, além de poder resumir o conteudo com base no contexto.
+---
+
+O aplicativo foi feito para transcrever audios .MP3 ou Gravados em tempo real com o Microfone, usando scripts com ajuda do Langchain e do modelo de IA da Groq de forma gratuita, além de poder resumir o conteudo com base no contexto.
